@@ -1,0 +1,18 @@
+import time
+from flyt_python import api
+drone = api.navigation(timeout=120000)
+time.sleep(5)
+print("take off to 5m")
+drone.take_off(5)
+print("in position A")
+drone.position_set(6.5, 0, 0, relative=True)
+print("in position B")
+drone.position_set(0, 6.5, 0, relative=True)
+print("in position C")
+drone.position_set(-6.5, 0, 0, relative=True)
+print("in position D")
+drone.position_set(0, -6.5, 0, relative=True)
+print("to position A")
+print("landing")
+drone.land(async=False)
+drone.disconnect()
